@@ -36,26 +36,17 @@ The main objective was to compare multiple ML models and identify the most effec
 
 ---
 
-## 🚀 Future Improvements  
-- Handle class imbalance with **SMOTE or undersampling techniques**.  
-- Perform deeper **hyperparameter tuning** for XGBoost.  
-- Add **model explainability** using SHAP values.  
-- Deploy the model as an **API or dashboard** for real-time fraud detection.  
-
----
-
 ## 📂 Repository Structure  
 ```
 📦 fraud-detection  
  ┣ 📜 fraud_detection.ipynb   # Main Jupyter Notebook  
  ┣ 📜 README.md               # Project Documentation  
- ┗ 📂 data/                   # (Dataset link provided below)  
 ```
 
 ---
 
 ## 📑 Dataset  
-The dataset used in this project is publicly available on [Kaggle: PaySim Fraud Dataset](https://www.kaggle.com/datasets/ealaxi/paysim1).  
+The dataset used in this project is publicly available on [Payments Fraud Dataset](https://drive.google.com/file/d/1txKoaCNnIOcwhBdJAM1MPUqEfjYaCZhk/view?usp=drive_link).  
 
 ---
 

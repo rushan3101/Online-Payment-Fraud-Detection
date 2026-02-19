@@ -21,19 +21,50 @@ The main objective was to compare multiple ML models and identify the most effec
 - Split dataset into **train & test sets** with stratification to preserve fraud ratio.  
 
 ### 🤖 3. Modeling  
-- Implemented and compared three ML models:  
-  - Logistic Regression  
-  - Random Forest  
-  - XGBoost  
-- Evaluated performance using **confusion matrix, accuracy, and AUC score**.  
+
+To address the severe class imbalance (~0.13% fraud cases), multiple modeling strategies were implemented and compared.
+
+#### Models and Techniques Used:
+
+- **Logistic Regression**
+  - Default  
+  - `class_weight='balanced'`
+
+- **Random Forest**
+  - Default  
+  - `class_weight='balanced'`  
+  - Balanced Random Forest  
+
+- **XGBoost**
+  - Default  
+
+- **Resampling Techniques**
+  - SMOTENC + Logistic Regression  
+  - SMOTENC + Random Forest  
+  - SMOTENC + XGBoost  
+
+Evaluation focused on **Precision, Recall, and PR-AUC**, which are more informative metrics than accuracy or ROC-AUC for highly imbalanced fraud detection datasets. 
 
 ### 📊 4. Results  
-- Logistic Regression and Random Forest showed decent performance.  
-- **XGBoost outperformed others** with:  
-  - **Accuracy: ~98%**  
-  - **AUC Score: ~99%**  
-- XGBoost was selected as the **final model for fraud detection**.  
 
+Since fraud detection prioritizes minimizing missed frauds, **Recall and PR-AUC** were emphasized.
+
+#### 🔎 Model Performance (Fraud Class)
+
+| Model                              | Precision | Recall | PR-AUC | Insight |
+|-------------------------------------|----------|--------|--------|---------|
+| Logistic Regression (Default)      | 0.92     | 0.36   | 0.5517 | High precision, low recall |
+| Logistic Regression (Balanced)     | 0.02     | 0.94   | 0.5456 | High recall, many false positives |
+| SMOTENC + Logistic Regression      | 0.02     | 0.95   | 0.5387 | Very high recall, low precision |
+| Random Forest (Default)            | 0.97     | 0.77   | 0.9249 | Strong balance |
+| Random Forest (Balanced)           | 0.97     | 0.77   | 0.9342 | Slightly improved PR-AUC |
+| Balanced Random Forest             | 0.13     | 1.00   | 0.8417 | Perfect recall, low precision |
+| SMOTENC + Random Forest            | 0.59     | 0.94   | 0.9050 | Strong trade-off |
+| XGBoost (Default)                  | 0.96     | 0.75   | 0.9155 | High precision |
+| SMOTENC + XGBoost (0.5 threshold)  | 0.37     | 0.99   | 0.9404 | Highest PR-AUC |
+| SMOTENC + XGBoost (0.991 threshold)| 0.79     | 0.89   | 0.9404 | Best balanced model |
+
+  
 ---
 
 ## 📂 Repository Structure  
@@ -51,5 +82,21 @@ The dataset used in this project is publicly available on [Payments Fraud Datase
 ---
 
 ## 🏆 Conclusion  
-This project demonstrates the **end-to-end process of building a fraud detection pipeline**, from raw data analysis to selecting the best-performing ML model.  
-By leveraging **XGBoost**, we achieved **high accuracy and AUC**, making it a strong candidate for real-world fraud detection systems.  
+
+This project explored multiple machine learning approaches for online payment fraud detection while addressing severe class imbalance. Since fraudulent transactions account for only ~0.13% of the dataset, evaluation focused on **Recall and PR-AUC** rather than accuracy alone.
+
+Resampling techniques such as **SMOTENC**, combined with ensemble models like **Random Forest and XGBoost**, significantly improved fraud detection performance.
+
+Among all approaches, **SMOTENC + XGBoost** emerged as the strongest candidate for deployment. With threshold tuning, it achieved approximately:
+
+- **Recall: ~89%**  
+- **Precision: ~79%**  
+- **PR-AUC: 94.4%**
+
+This project highlights the importance of:
+
+- Properly handling class imbalance  
+- Using ensemble methods for robust performance  
+- Optimizing classification thresholds based on business requirements  
+
+It demonstrates a production-oriented fraud detection pipeline that balances statistical rigor with real-world deployment considerations.

@@ -15,8 +15,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.divider()
-
 # User Inputs
 payment_type = st.selectbox(
     "Payment Type",

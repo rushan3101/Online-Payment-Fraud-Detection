@@ -5,9 +5,15 @@ import pandas as pd
 # Load model
 model = joblib.load("fraud_detection_model.pkl")
 
-st.title("💳 Online Payment Fraud Detection")
+st.markdown(
+    "<h2 style='margin-bottom: 5px;'>💳 Online Payment Fraud Detection</h2>",
+    unsafe_allow_html=True
+)
 
-st.markdown("Enter transaction details:")
+st.markdown(
+    "<p style='font-size:18px; font-weight:500;'>Enter transaction details:</p>",
+    unsafe_allow_html=True
+)
 
 st.divider()
 

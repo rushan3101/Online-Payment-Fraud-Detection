@@ -4,7 +4,16 @@
 This project focuses on building a **fraud detection system** using machine learning.  
 We worked with a large dataset of online transactions to identify fraudulent activity, starting from **data preprocessing and exploratory data analysis (EDA)** to **model training and evaluation**.  
 
-The main objective was to compare multiple ML models and identify the most effective approach for fraud detection in highly imbalanced datasets.  
+The main objective was to compare multiple ML models and identify the most effective approach for fraud detection in highly imbalanced datasets. 
+
+## 🚀 Live Demo  
+
+The fraud detection model has been deployed using **Streamlit** and is publicly accessible.
+
+🔗 **Try the App Here:**  
+https://mohd-rushan-online-payment-fraud-detection.streamlit.app/
+
+The app allows users to input transaction details and receive real-time fraud predictions using the trained XGBoost model.
 
 ---
 
@@ -64,14 +73,27 @@ Since fraud detection prioritizes minimizing missed frauds, **Recall and PR-AUC*
 | SMOTENC + XGBoost (0.5 threshold)  | 0.37     | 0.99   | 0.9404 | Highest PR-AUC |
 | SMOTENC + XGBoost (0.991 threshold)| 0.79     | 0.89   | 0.9404 | Best balanced model |
 
-  
+### 🌐 5. Deployment  
+
+The final optimized model (**SMOTENC + XGBoost with threshold tuning**) was exported and deployed using **Streamlit Cloud**.
+
+### Deployment Workflow:
+1. Trained and finalized the model in Jupyter Notebook  
+2. Built an interactive UI using Streamlit  
+3. Deployed via Streamlit Cloud  
+
+The application allows real-time fraud detection based on user-provided transaction inputs.
+
 ---
 
 ## 📂 Repository Structure  
 ```
-📦 fraud-detection  
- ┣ 📜 fraud_detection.ipynb   # Main Jupyter Notebook  
- ┣ 📜 README.md               # Project Documentation  
+📦 fraud-detection
+┣ 📜 fraud_detection.ipynb # Model development & experimentation
+┣ 📜 fraud_detection_app.py # Streamlit web application
+┣ 📜 fraud_detection_model.pkl # Trained XGBoost model
+┣ 📜 requirements.txt # Project dependencies
+┣ 📜 README.md # Project documentation
 ```
 
 ---

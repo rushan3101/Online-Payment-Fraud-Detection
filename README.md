@@ -15,6 +15,19 @@ https://mohd-rushan-online-payment-fraud-detection.streamlit.app/
 
 The app allows users to input transaction details and receive real-time fraud predictions using the trained XGBoost model.
 
+## 🖼️ Application Preview  
+
+<table>
+  <tr>
+    <td align="center"><b>✅ Legitimate Transaction</b></td>
+    <td align="center"><b>⚠️ Fraudulent Transaction</b></td>
+  </tr>
+  <tr>
+    <td><img src="NonFraud.png" width="400"/></td>
+    <td><img src="Fraud.png" width="400"/></td>
+  </tr>
+</table>
+
 ---
 
 ## ⚙️ Steps Involved  

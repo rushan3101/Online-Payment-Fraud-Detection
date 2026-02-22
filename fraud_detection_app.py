@@ -7,7 +7,9 @@ model = joblib.load("fraud_detection_model.pkl")
 
 st.title("💳 Online Payment Fraud Detection")
 
-st.write("Enter transaction details:")
+st.markdown("Enter transaction details:")
+
+st.divider()
 
 # User Inputs
 payment_type = st.selectbox(
